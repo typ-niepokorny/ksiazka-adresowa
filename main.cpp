@@ -608,6 +608,16 @@ int menuGlowne()
     bazaDanych.close(); // Dla zasady
 }
 
+void menuLogowania()
+{
+    int wybor;
+
+    cout << ".: Menu logowania :." << endl;
+    cout << endl << "W trakcie budowy - nacisnij dowolny klawisz, aby wyjsc do poprzedniego menu" << endl;
+
+    system("pause");
+}
+
 int main()
 {
     int wybor;
@@ -624,10 +634,19 @@ int main()
 
         switch (wybor)
         {
+        case 1:
+            system("cls");
+            menuLogowania();
+            break;
         case 0:
             system("cls");
             exit(0);
             break;
+        default:
+            system("cls");
+            cout << "Nieprawidlowy wybor! Sprobuj ponownie." << endl;
+            system("pause");
+            system("cls");
         }
     }
     return 0;
