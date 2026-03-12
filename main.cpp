@@ -526,7 +526,7 @@ void menuUsuwaniaIEdycjiKontaktu(vector<Kontakt>& kontakty, int wybor)
 	}
 }
 
-int main()
+int menuGlowne()
 {
     vector<Kontakt> kontakty;
     fstream bazaDanych;
@@ -606,6 +606,29 @@ int main()
         }
     }
     bazaDanych.close(); // Dla zasady
+}
 
+int main()
+{
+    int wybor;
+
+    while (true)
+    {
+        system("cls");
+        cout << "[1] Logowanie" << endl;
+        cout << "[2] Rejestracja" << endl;
+        cout << "[0] Zamknij program" << endl;
+        cout << endl << "Twoj wybor: ";
+
+        wybor = pobierzLiczbe();
+
+        switch (wybor)
+        {
+        case 0:
+            system("cls");
+            exit(0);
+            break;
+        }
+    }
     return 0;
 }
