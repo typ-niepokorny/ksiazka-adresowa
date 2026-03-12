@@ -608,6 +608,16 @@ int menuGlowne()
     bazaDanych.close(); // Dla zasady
 }
 
+void menuRejestracji()
+{
+    int wybor;
+
+    cout << ".: Menu rejestracji :." << endl;
+    cout << endl << "W trakcie budowy - nacisnij dowolny klawisz, aby wyjsc do poprzedniego menu" << endl;
+
+    system("pause");
+}
+
 int main()
 {
     int wybor;
@@ -624,6 +634,10 @@ int main()
 
         switch (wybor)
         {
+        case 2:
+            system("cls");
+            menuRejestracji();
+            break;
         case 0:
             system("cls");
             exit(0);
