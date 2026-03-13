@@ -610,12 +610,16 @@ int menuGlowne()
 
 void menuLogowania()
 {
-    int wybor;
+    string login, haslo;
 
     cout << ".: Menu logowania :." << endl;
-    cout << endl << "W trakcie budowy - nacisnij dowolny klawisz, aby wyjsc do poprzedniego menu" << endl;
-
-    system("pause");
+    cout << endl << "W trakcie budowy - dzialasz na wlasna odpowiedzialnosc" << endl;
+    cout << endl;
+    cout << "Podaj login: ";
+    login = pobierzLinie();
+    cout << "Podaj haslo: ";
+    haslo = pobierzLinie();
+    // tu bedzie funkcja sprawdzajaca czy login i haslo sa poprawne
 }
 
 int main()
