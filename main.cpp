@@ -610,11 +610,25 @@ int menuGlowne()
 
 void menuRejestracji()
 {
-    int wybor;
+    fstream bazaUzytkownikow;
+    string login, haslo, powtorzenieHasla;
+
+    bazaUzytkownikow.open ("uzytkownicy.txt", ios::in | ios::app);
+    if ( !bazaUzytkownikow.good() )
+    {
+        cerr << "Wystapil problem z baza uzytkownikow!" << endl;
+        exit(0);
+    }
 
     cout << ".: Menu rejestracji :." << endl;
-    cout << endl << "W trakcie budowy - nacisnij dowolny klawisz, aby wyjsc do poprzedniego menu" << endl;
-
+    cout << "W trakcie budowy - dzialasz na wlasna odpowiedzialnosc" << endl;
+    cout << endl << "Wprowadz nazwe uzytkownika: ";
+    login = pobierzLinie();
+    // tu bedzie funkcja sprawdzajaca czy nazwa uzytkownika istnieje w bazie
+    cout << "Wprowadz swoje haslo: ";
+    haslo = pobierzLinie();
+    // tu bedzie funkcja zapisujaca uzytkownika w bazie
+    cout << "Rejestracja nowego uzytkownika przebiegla pomyslnie!";
     system("pause");
 }
 
