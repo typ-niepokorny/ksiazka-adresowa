@@ -608,6 +608,53 @@ int menuGlowne()
     bazaDanych.close(); // Dla zasady
 }
 
+void menuLogowania()
+{
+    string login, haslo;
+
+    cout << ".: Menu logowania :." << endl;
+    cout << endl << "W trakcie budowy - dzialasz na wlasna odpowiedzialnosc" << endl;
+    cout << endl;
+    cout << "Podaj login: ";
+    login = pobierzLinie();
+    cout << "Podaj haslo: ";
+    haslo = pobierzLinie();
+    // tu bedzie funkcja sprawdzajaca czy login i haslo sa poprawne
+
+    // aby uzyskac dostep do pozostalej czesci programu
+    // ustawiamy dane do logowania jako admin/admin
+
+    if (login == "admin" && haslo == "admin")
+    {
+        menuGlowne();
+    }
+}
+
+void menuRejestracji()
+{
+    fstream bazaUzytkownikow;
+    string login, haslo, powtorzenieHasla;
+
+    bazaUzytkownikow.open ("uzytkownicy.txt", ios::in | ios::app);
+    if ( !bazaUzytkownikow.good() )
+    {
+        cerr << "Wystapil problem z baza uzytkownikow!" << endl;
+        exit(0);
+    }
+
+    cout << ".: Menu rejestracji :." << endl;
+    cout << "W trakcie budowy - dzialasz na wlasna odpowiedzialnosc" << endl;
+    cout << endl << "Wprowadz nazwe uzytkownika: ";
+    login = pobierzLinie();
+    // tu bedzie funkcja sprawdzajaca czy nazwa uzytkownika istnieje w bazie
+    cout << "Wprowadz swoje haslo: ";
+    haslo = pobierzLinie();
+    // tu bedzie funkcja zapisujaca uzytkownika w bazie
+    cout << endl;
+    cout << "Rejestracja nowego uzytkownika przebiegla pomyslnie!" << endl;
+    system("pause");
+}
+
 int main()
 {
     int wybor;
@@ -624,10 +671,23 @@ int main()
 
         switch (wybor)
         {
+        case 1:
+            system("cls");
+            menuLogowania();
+            break;
+        case 2:
+            system("cls");
+            menuRejestracji();
+            break;
         case 0:
             system("cls");
             exit(0);
             break;
+        default:
+            system("cls");
+            cout << "Nieprawidlowy wybor! Sprobuj ponownie." << endl;
+            system("pause");
+            system("cls");
         }
     }
     return 0;
