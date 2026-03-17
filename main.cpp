@@ -620,6 +620,14 @@ void menuLogowania()
     cout << "Podaj haslo: ";
     haslo = pobierzLinie();
     // tu bedzie funkcja sprawdzajaca czy login i haslo sa poprawne
+
+    // aby uzyskac dostep do pozostalej czesci programu
+    // ustawiamy dane do logowania jako admin/admin
+
+    if (login == "admin" && haslo == "admin")
+    {
+        menuGlowne();
+    }
 }
 
 void menuRejestracji()
@@ -642,7 +650,8 @@ void menuRejestracji()
     cout << "Wprowadz swoje haslo: ";
     haslo = pobierzLinie();
     // tu bedzie funkcja zapisujaca uzytkownika w bazie
-    cout << "Rejestracja nowego uzytkownika przebiegla pomyslnie!";
+    cout << endl;
+    cout << "Rejestracja nowego uzytkownika przebiegla pomyslnie!" << endl;
     system("pause");
 }
 
@@ -665,6 +674,7 @@ int main()
         case 1:
             system("cls");
             menuLogowania();
+            break;
         case 2:
             system("cls");
             menuRejestracji();
